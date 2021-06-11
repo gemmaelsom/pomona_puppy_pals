@@ -1,0 +1,2 @@
+class DogHealthIssue < ApplicationRecord
+end

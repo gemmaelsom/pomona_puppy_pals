@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment: 9.99
+  start_time: 2021-06-11 20:01:04
+  duration: 9.99
+  description: MyString
+
+two:
+  payment: 9.99
+  start_time: 2021-06-11 20:01:04
+  duration: 9.99
+  description: MyString

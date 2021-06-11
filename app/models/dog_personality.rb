@@ -1,0 +1,2 @@
+class DogPersonality < ApplicationRecord
+end
