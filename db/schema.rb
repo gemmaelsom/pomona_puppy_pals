@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_12_055841) do
+ActiveRecord::Schema.define(version: 2021_06_12_061947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,16 @@ ActiveRecord::Schema.define(version: 2021_06_12_055841) do
     t.string "health_issue"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dog_id", null: false
+    t.index ["dog_id"], name: "index_dog_health_issues_on_dog_id"
   end
 
   create_table "dog_personalities", force: :cascade do |t|
     t.string "personality_trait"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dog_id", null: false
+    t.index ["dog_id"], name: "index_dog_personalities_on_dog_id"
   end
 
   create_table "dogs", force: :cascade do |t|
@@ -61,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_06_12_055841) do
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -71,12 +77,20 @@ ActiveRecord::Schema.define(version: 2021_06_12_055841) do
     t.string "personality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dog_id", null: false
+    t.bigint "walker_id", null: false
+    t.bigint "poster_id", null: false
+    t.index ["dog_id"], name: "index_posts_on_dog_id"
+    t.index ["poster_id"], name: "index_posts_on_poster_id"
+    t.index ["walker_id"], name: "index_posts_on_walker_id"
   end
 
   create_table "roles", force: :cascade do |t|
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +118,11 @@ ActiveRecord::Schema.define(version: 2021_06_12_055841) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dog_health_issues", "dogs"
+  add_foreign_key "dog_personalities", "dogs"
+  add_foreign_key "dogs", "users"
+  add_foreign_key "posts", "dogs"
+  add_foreign_key "posts", "users", column: "poster_id"
+  add_foreign_key "posts", "users", column: "walker_id"
+  add_foreign_key "roles", "users"
 end
