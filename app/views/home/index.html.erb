@@ -1,2 +1,6 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>You're set!</h1>
+<%# <p>Find me in app/views/home/index.html.erb</p> %>
+
+ <% if @user.photo.attached? %>
+    <p><%= cl_image_tag @user.photo.key, crop: :scale, width: 150, cloud_name: 'hkoskhtyh' %></p>
+<% end %>
