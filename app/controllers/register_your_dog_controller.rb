@@ -14,7 +14,7 @@ class RegisterYourDogController < ApplicationController
     breed = params[:breed]
     age = params[:age]
     
-    dog = Dog.create!(name: name, breed: breed, age: age, user_id: current_user.id)
+    dog = Dog.create!(name: name, breed: breed, age: age, user_id: current_user.id, photo: params[:photo])
 
     redirect_to '/profile/show'
 
