@@ -1,5 +1,24 @@
 <h1>Register Your Dog </h1>
 
-<h2> form goes here </h2>
+<%= form_with url: 'create', method: :post do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+
+  <button>Save</button>
+
+<% end %>
 
 <%= link_to "Advertise a dog walking job", "/post_a_job/post" %>
