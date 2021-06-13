@@ -62,3 +62,12 @@ nav a {
 nav a:hover {
     color: white;
 }
+
+.logout {
+    float:right;
+    background-color: #ffbd59;
+    margin-right: -10%;
+    margin-top: -2%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
