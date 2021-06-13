@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search_jobs/search'
+  get 'post_a_job/post'
   get 'register_your_dog/create'
   get 'home/index'
   devise_for :users
