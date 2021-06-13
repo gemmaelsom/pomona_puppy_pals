@@ -16,5 +16,7 @@ class RegisterYourDogController < ApplicationController
     
     dog = Dog.create!(name: name, breed: breed, age: age, user_id: current_user.id)
 
+    redirect_to '/profile/show'
+
   end
 end
