@@ -3,6 +3,5 @@ class SearchJobsController < ApplicationController
   end
 
   def show
-  
   end
 end

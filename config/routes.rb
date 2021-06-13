@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search_walkers/show'
   get 'about/about'
   get 'job_search/search'
   get 'profile/show'

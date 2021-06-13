@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one_attached :photo, dependent: :destroy
-  has_many :dogs
-  has_many :roles
-  has_many :posts, foreign_key: 'poster_id'
-  has_many :posts, foreign_key: 'walker_id'
+  has_many :dogs, dependent: :destroy
+  has_many :roles, dependent: :destroy
+  has_many :posts, foreign_key: 'poster_id', dependent: :destroy
+  has_many :posts, foreign_key: 'walker_id', dependent: :destroy
 end
