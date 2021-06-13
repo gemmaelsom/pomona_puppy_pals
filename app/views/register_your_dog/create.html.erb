@@ -1,7 +1,8 @@
 <h1>Register Your Dog </h1>
 
+<body>
 <%= form_with url: 'create', method: :post do |f| %>
-
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -17,8 +18,18 @@
     <%= f.number_field :age %>
   </div>
 
+    <div class="field">
+    <div class="gravatar_edit">
+      <%= f.file_field :photo,
+        placeholder: 'Upload picture',
+        direct_upload: true
+        %>
+    </div>
+  </div>
+
   <button>Save</button>
 
 <% end %>
 
 <%= link_to "Advertise a dog walking job", "/post_a_job/post" %>
+</body>
