@@ -15,8 +15,10 @@ class PostAJobController < ApplicationController
     puts "hello up"
     puts current_user.dog.id
 
-
-    post = Post.create(payment: payment, start_time: start_time, duration: duration, description: description, personality: personality, poster_id: current_user.id, walker_id: current_user.id, dog_id: current_user.dog.id, job_photo: params[:job_photo])
+    post = Post.new(post_params)
+    post.poster_id = current_user.id
+    post.dog_id = current_user.dog.id
+    post.save!
 
     redirect_to '/search_walkers/show'
   end
@@ -27,5 +29,11 @@ class PostAJobController < ApplicationController
 
   def index
     @jobs = Post.all
+  end
+
+  private
+
+  def post_params
+    params.permit(:payment, :start_time, :duration, :description, :personality, :job_photo)
   end
 end
