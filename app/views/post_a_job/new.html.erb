@@ -4,18 +4,20 @@
     <%= form_with url: 'post', method: :post do |f| %>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
+    <%# <%= form.collection_select :dog_id, Dog.order(:name), :id, :name %> 
+
     <div class="field">
-        <%= f.label :description %>
+        <%= f.label :description_of_job %>
         <%= f.text_field :description %>
     </div>
 
     <div class="field">
-        <%= f.label :personality %>
+        <%= f.label :dog_personality %>
         <%= f.text_field :personality %>
     </div>
 
     <div class="field">
-        <%= f.label :payment %>
+        <%= f.label :payment_offered %>
         <%= f.number_field :payment %>
     </div>
 
