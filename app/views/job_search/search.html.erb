@@ -1,2 +1,16 @@
-<h1>JobSearch#search</h1>
-<p>Find me in app/views/job_search/search.html.erb</p>
+<h1>Here are the dog walking jobs available</h1>
+
+<% @posts.each do |post| %>
+<h1><%= post.description %></h1>
+<% end %>
+
+
+<%# <% @posts.each do |post| %> 
+ <%# <div class="col-md-4"> %>
+  <%# <%= image_tag post.img %> 
+  <%# <h1><%= post.title %>
+  <%# <p><%= post.content %>
+  <%# <br> %>
+  <%# <%= link_to 'Read More', post_path(post) %> 
+ <%# </div> %>
+<%# <% end %> 
