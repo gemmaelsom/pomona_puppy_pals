@@ -1,0 +1,10 @@
+<h1>Here are the dog walking jobs available</h1>
+<% if @jobs %>
+
+    <% @jobs.each do |job| %>
+        <h1><%= job.description %></h1>
+        <%= cl_image_tag job.job_photo.key, crop: :scale, width: 150, cloud_name: 'hkoskhtyh' %> 
+    <% end %>
+
+<% end %>
+

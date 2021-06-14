@@ -1,5 +1,5 @@
 class PostAJobController < ApplicationController
-  def post
+  def create
 
     @post = Post.new
 
@@ -16,11 +16,16 @@ class PostAJobController < ApplicationController
     puts current_user.dog.id
 
 
-    post = Post.create(payment: payment, start_time: start_time, duration: duration, description: description, personality: personality, poster_id: current_user.id, walker_id: current_user.id, dog_id: current_user.dog.id)
+    post = Post.create(payment: payment, start_time: start_time, duration: duration, description: description, personality: personality, poster_id: current_user.id, walker_id: current_user.id, dog_id: current_user.dog.id, job_photo: params[:job_photo])
 
     redirect_to '/search_walkers/show'
   end
 
   def new
-  end 
+    @job = Post.new
+  end
+
+  def index
+    @jobs = Post.all
+  end
 end
