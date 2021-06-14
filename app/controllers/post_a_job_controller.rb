@@ -13,10 +13,10 @@ class PostAJobController < ApplicationController
     puts "hello down"
     puts current_user.id
     puts "hello up"
-    puts current_user.dogs.ids
+    puts current_user.dog.id
 
 
-    post = Post.create(payment: payment, start_time: start_time, duration: duration, description: description, personality: personality, poster_id: current_user.id, walker_id: current_user.id, dog_id: current_user.dogs.first.id)
+    post = Post.create(payment: payment, start_time: start_time, duration: duration, description: description, personality: personality, poster_id: current_user.id, walker_id: current_user.id, dog_id: current_user.dog.id)
 
     redirect_to '/search_walkers/show'
   end
