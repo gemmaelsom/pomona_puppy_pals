@@ -2,11 +2,11 @@
 <% if @jobs %>
 
     <% @jobs.each do |job| %>
-        <h1><%= job.description %></h1>
-        <h1><%= job.personality %></h1>
-        <h1><%= job.payment %></h1>
-        <h1><%= job.start_time %></h1>
-        <h1><%= job.duration %></h1>
+        <h3><%= job.description %></h3>
+        <h3><%= job.personality %></h3>
+        <h3><%= job.payment %></h3>
+        <h3><%= job.start_time %></h3>
+        <h3><%= job.duration %></h3>
         <%= cl_image_tag job.job_photo.key, crop: :scale, width: 150, cloud_name: 'hkoskhtyh' %> 
     <% end %>
 
