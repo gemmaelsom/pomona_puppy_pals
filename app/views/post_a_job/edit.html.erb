@@ -1,8 +1,8 @@
-<h1>Post a dog walking job</h1>
+<h1>Edit job</h1>
 
 <body>
 
-    <%= form_with model: @post, local: true do |f|%>
+    <%= form_with url: 'edit', local: true do |f|%>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
 

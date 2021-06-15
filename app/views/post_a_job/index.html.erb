@@ -8,7 +8,11 @@
         <h3><%= job.start_time %></h3>
         <h3><%= job.duration %></h3>
         <%= cl_image_tag job.job_photo.key, crop: :scale, width: 150, cloud_name: 'hkoskhtyh' %> 
+        <li> <%= link_to "Edit this job", edit_post_path(job) %> </li>
+        <li> <%= link_to "Delete this job", method: :destroy %> </li>
     <% end %>
+
+   
 
 <% end %>
 
