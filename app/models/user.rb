@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one_attached :photo, dependent: :destroy
   has_one :dog, dependent: :destroy
   has_many :roles, dependent: :destroy
-  has_many :posts, foreign_key: 'poster_id', dependent: :destroy
-  has_many :posts, foreign_key: 'walker_id', dependent: :destroy
+  has_many :listings, class_name: "Post" 
+  has_many :posts
+  validates :email, :first_name, :last_name, :country, :post_code, :street_name, :city, :state, :birthday, :phone_number, :display_name, :bio, presence: true
 end

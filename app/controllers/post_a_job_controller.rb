@@ -1,13 +1,13 @@
 class PostAJobController < ApplicationController
   def create
 
-    @post = Post.new
+    @post = Post.new(post_params)
 
-    payment = params[:payment]
-    start_time = params[:start_time]
-    duration = params[:duration]
-    description = params[:description]
-    personality = params[:personality]
+    # payment = params[:payment]
+    # start_time = params[:start_time]
+    # duration = params[:duration]
+    # description = params[:description]
+    # personality = params[:personality]
 
 
     puts "hello down"
@@ -16,9 +16,9 @@ class PostAJobController < ApplicationController
     puts current_user.dog.id
 
     post = Post.new(post_params)
-    post.poster_id = current_user.id
+    post.user_id = current_user.id
     post.dog_id = current_user.dog.id
-    post.save!
+    post.save
 
     redirect_to '/search_walkers/show'
   end
