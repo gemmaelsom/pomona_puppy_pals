@@ -3,7 +3,7 @@ class PostAJobController < ApplicationController
 
     @post = Post.new(post_params)
 
-
+# Testing
     puts "hello down"
     puts current_user.id
     puts "hello up"
@@ -13,7 +13,7 @@ class PostAJobController < ApplicationController
     post.user_id = current_user.id
     post.dog_id = current_user.dog.id
     
-
+ #Redirect to original Post a job page if form did not save
     if post.save
       post.save!
       redirect_to '/search_walkers/show'
@@ -44,16 +44,6 @@ class PostAJobController < ApplicationController
     @jobs.destroy
     redirect_to home_index_path
   end
-
-  # def update
-  #   @post = Post.find(params[:id])
-  #   authorize @post
-  #   if @post.update(post_params)
-  #     redirect_to @post
-  #   else
-  #     render :edit
-  #   end
-  # end
 
   private
   def post_params

@@ -1,5 +1,5 @@
 class Dog < ApplicationRecord
-  belongs_to :user # ok
+  belongs_to :user 
   has_one :dog_personality
   has_one :post
   has_many :dog_health_issues

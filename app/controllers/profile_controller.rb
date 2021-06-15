@@ -5,7 +5,7 @@ class ProfileController < ApplicationController
     @user = current_user
 
     if (@dog.present?)
-
+    #testing
       puts "showing dog down"
       puts @dog
       puts @dog.name
