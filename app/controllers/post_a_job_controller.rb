@@ -3,12 +3,6 @@ class PostAJobController < ApplicationController
 
     @post = Post.new(post_params)
 
-    # payment = params[:payment]
-    # start_time = params[:start_time]
-    # duration = params[:duration]
-    # description = params[:description]
-    # personality = params[:personality]
-
 
     puts "hello down"
     puts current_user.id
@@ -18,9 +12,12 @@ class PostAJobController < ApplicationController
     post = Post.new(post_params)
     post.user_id = current_user.id
     post.dog_id = current_user.dog.id
-    post.save
 
-    redirect_to '/search_walkers/show'
+    if post.save
+    then redirect_to '/search_walkers/show'
+    else puts redirect_to '/post_a_job/new'
+    end
+
   end
 
   def new
