@@ -1,9 +1,10 @@
 class ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :user, :record, :post
 
   def initialize(user, record)
     @user = user
     @record = record
+    @post = post
   end
 
   def index?
@@ -23,7 +24,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.admin? || !post.published?
   end
 
   def edit?

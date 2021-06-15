@@ -1,0 +1,46 @@
+<h1>Post a dog walking job</h1>
+
+<body>
+
+    <%= form_with model: @post, local: true do |f|%>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+
+    <div class="field">
+        <%= f.label :description_of_job %>
+        <%= f.text_field :description %>
+    </div>
+
+    <div class="field">
+        <%= f.label :dog_personality %>
+        <%= f.text_field :personality %>
+    </div>
+
+    <div class="field">
+        <%= f.label :payment_offered %>
+        <%= f.number_field :payment %>
+    </div>
+
+    <div class="field">
+        <%= f.label :start_time %>
+        <%= f.text_field :start_time %>
+    </div>
+
+      <div class="field">
+        <%= f.label :duration %>
+        <%= f.text_field :duration %>
+    </div>
+
+        <div class="field">
+            <div class="gravatar_edit">
+                <%= f.file_field :job_photo,
+                placeholder: 'Upload picture',
+                direct_upload: true
+                %>
+            </div>
+        </div>
+
+    <button>Post job</button>
+
+<% end %>
+</body>

@@ -12,9 +12,11 @@ class PostAJobController < ApplicationController
     post = Post.new(post_params)
     post.user_id = current_user.id
     post.dog_id = current_user.dog.id
+    
 
     if post.save
-    then redirect_to '/search_walkers/show'
+      post.save!
+      redirect_to '/search_walkers/show'
     else puts redirect_to '/post_a_job/new'
     end
 
@@ -33,4 +35,18 @@ class PostAJobController < ApplicationController
   def post_params
     params.permit(:payment, :start_time, :duration, :description, :personality, :job_photo)
   end
+
+  def update
+    @post = Post.find(params[:id])
+    authorize @post
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render :edit
+    end
+  end
+
+  def check_auth
+  end
+
 end

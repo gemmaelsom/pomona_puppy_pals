@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'register_your_dog/create', to: 'register_your_dog#create'
   post 'post_a_job/new', to: 'post_a_job#create'
   get 'post_a_job/new', to: 'post_a_job#new'
+  get 'post_a_job/edit', to: 'post_a_job#edit'
+  post 'post_a_job/update', to: 'post_a_job#update'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
